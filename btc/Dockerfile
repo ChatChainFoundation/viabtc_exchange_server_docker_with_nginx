@@ -4,15 +4,16 @@ MAINTAINER Guo Yukun
 
 #RUN sed -i "s/archive.ubuntu./mirrors.aliyun./g" /etc/apt/sources.list
 
-RUN apt-get update &&\
-    apt-get install -y wget vim psmisc &&\
-    apt-get -y install git &&\
+RUN yum update &&\
+    yum install -y wget vim psmisc &&\
+    yum -y install git &&\
 	# 依赖包
-	apt-get -y install libev-dev libssl-dev libmpdec-dev libjansson-dev   libmysqlclient-dev &&\
+	yum -y install libev-dev libssl-dev libmpdec-dev libjansson-dev   libmysqlclient-dev &&\
  	# 安装构建工具
-	apt-get install -y  build-essential autoconf libtool python &&\
+	yum install -y  build-essential autoconf libtool python &&\
 	# 清理
-	rm -rf /var/lib/apt/lists/* &&\
+	rm -rf /var/lib/
+	/lists/* &&\
 	# 建立工作目录
 	mkdir /src/ &&\
 	cd /src
@@ -46,7 +47,7 @@ RUN wget https://codeload.github.com/curl/curl/tar.gz/curl-7_57_0 -O /src/curl-7
 	make &&\
 	make install
 
-RUN apt-get update &&  apt-get -y install liblz4-dev
+RUN yum update &&  yum -y install liblz4-dev
 
 ADD build.sh /src/build.sh
 
