@@ -1,4 +1,4 @@
-FROM ubuntu:xenial AS btc-build
+FROM centeros
 
 MAINTAINER Guo Yukun
 
