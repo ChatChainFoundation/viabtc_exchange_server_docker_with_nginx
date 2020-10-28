@@ -13,7 +13,7 @@ RUN yum update &&\
 	yum install -y  build-essential autoconf libtool python &&\
 	# 清理
 	rm -rf /var/lib/
-	/lists/* &&\
+	#/lists/* &&\
 	# 建立工作目录
 	mkdir /src/ &&\
 	cd /src
